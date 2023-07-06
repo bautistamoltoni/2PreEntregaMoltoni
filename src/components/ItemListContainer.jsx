@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import data from "../data/productos.json";
@@ -23,14 +24,23 @@ export const ItemListContainer = props  => {
           });
     }, [id]) 
     
+
+
+
+
+
+
     return (
     <Container>
         <h1>
             {props.greeting}
         </h1>
+
         {productos.length === 0 ? (<div> loading</div>) : <ItemList productos={productos} /> }  
         
         
+
+
         
     </Container>
     )

@@ -1,3 +1,4 @@
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -10,9 +11,14 @@ import  "./Css/App.Css";
 
 
 
+
+
+
+
 function App() {
   return (
     <>
+
     <BrowserRouter>     
         <NavBar/>
         <Routes>
@@ -28,5 +34,11 @@ function App() {
   );
     
 }
+
+  
+
+
+
+
 
 export default App;
