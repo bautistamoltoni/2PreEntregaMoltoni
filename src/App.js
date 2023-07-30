@@ -7,7 +7,12 @@ import { ItemListContainer } from "./components/ItemListContainer.jsx";
 import { NavBar } from "./components/NavBar.jsx";
 import  ItemDetailContainer from "./components/ItemDetailContainer.jsx";
 import  Nosotros  from "./components/Nosotros.jsx";
+import Contacto from "./components/contacto.jsx";
+import Carrito from "./components/Carrito.jsx"
 import  "./Css/App.Css";
+
+import {  CartProvider } from './context/CartContext.jsx';
+
 
 
 
@@ -16,9 +21,13 @@ import  "./Css/App.Css";
 
 
 function App() {
+
+
+  
+
   return (
     <>
-
+  <CartProvider >
     <BrowserRouter>     
         <NavBar/>
         <Routes>
@@ -26,10 +35,12 @@ function App() {
             <Route path="/category/:id" element={<ItemListContainer greeting="PRODUCTOS" />} />
             <Route path="/item/:id" element={<ItemDetailContainer/>} />
             <Route path="/nosotros" element={ <Nosotros/>} />
+            <Route path="/contacto" element={ <Contacto/>} />
+            <Route path="/carrito" element={ <Carrito/>} />
         </Routes>
           
     </BrowserRouter>
-
+    </CartProvider>
     </>
   );
     

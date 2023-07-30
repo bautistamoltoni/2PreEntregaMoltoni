@@ -1,28 +1,36 @@
 
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import data from "../data/productos.json";
+
 import { ItemList } from "./ItemList.jsx"
 import { useParams } from 'react-router-dom';
-
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 export const ItemListContainer = props  => {
     const [productos, setProductos] = useState([])
 
-    const {id} = useParams()
+    const  {category } = useParams();
+
+    
 
     useEffect(() => { 
-        const promesa = new Promise ((resolve, rejected) => {
-            setTimeout(() => {
-                resolve(data);
-            }, 3000)
-            
-        })
-        promesa.then(result => {
-            const filteredProductos = id ? result.filter(producto => producto.category === id) : result;
-            setProductos(filteredProductos);
-          });
-    }, [id]) 
+
+        const productosRef = collection(db, "productos");
+        const q = category ? query(productosRef, where("category", "===", category)) : productosRef;
+
+        getDocs(q).then(
+            (resp) => {
+                setProductos(
+                    resp.docs.map((doc) => {
+                        return {...doc.data(), id : doc.id}
+                    })
+                )
+            }
+        )
+        
+
+    }, [category]) 
     
 
 

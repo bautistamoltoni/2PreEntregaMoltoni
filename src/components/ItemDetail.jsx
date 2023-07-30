@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
+import { CartContext } from '../context/CartContext';
+
 
 const ItemDetail = ({ item }) => {
+
+  const { AgregarAlCarrito} = useContext(CartContext);
+  
+  const [cantidad, setCantidad] = useState(1)
+
+  const handleRestar = () => {
+      cantidad > 1 && setCantidad(cantidad - 1)
+  }
+
+  const handleSumar = ( ) => {
+      cantidad < item.stock && setCantidad(cantidad + 1)
+  }
+
+
+
+
   return (
     <>
       <Card style={{ width: '18rem' }}>
@@ -9,6 +28,7 @@ const ItemDetail = ({ item }) => {
         <Card.Body>
           <Card.Title>{item.nombre}</Card.Title>
           <Card.Text>Categoría: {item.category}</Card.Text>
+          <ItemCount cantidad={cantidad} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={ () => { AgregarAlCarrito (item, cantidad)}}/>
         </Card.Body>
       </Card>
     </>

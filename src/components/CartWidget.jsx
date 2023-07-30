@@ -1,4 +1,7 @@
+import { useContext } from "react"
 import cart from "../assets/carritodecompras.png"
+import { CartContext } from "../context/CartContext"
+import { NavLink } from "react-router-dom"
 
 const estilos = {
     img: {
@@ -13,10 +16,16 @@ const estilos = {
 
 
 export const CartWidget = ( ) => {
+
+    const {cantidadEnCarrito} = useContext(CartContext);
+
     return (
     <>
+    <NavLink className="nav-link " to="/carrito"> 
     <img src={cart} style={estilos.img} alt="carrito" />
-    <span style={estilos.span}>0</span>
+
+    <span style={estilos.span}>{cantidadEnCarrito()}</span>
+    </NavLink>
     </>
     )
 }
