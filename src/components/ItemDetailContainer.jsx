@@ -25,14 +25,6 @@ const ItemDetailContainer = () => {
 
 
 
-      // const promesa = new Promise((resolve, rejected) => {
-      //   resolve(data);
-      // });
-  
-      // promesa.then(result => {
-      //   const filteredItem = id ? result.find(producto => producto.id === Number(id)) : null;
-      //   setItem(filteredItem || {});
-      // });
     }, [id]);
   
     return <ItemDetail item={item} />;
