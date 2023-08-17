@@ -20,20 +20,11 @@ const ItemDetailContainer = () => {
           )
         }
       )
-
-
-
-
-
     }, [id]);
   
     return <ItemDetail item={item} />;
   };
   
-
-
-
-
 export default ItemDetailContainer;
 
 

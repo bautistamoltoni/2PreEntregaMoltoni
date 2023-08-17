@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
       cantidad < item.stock && setCantidad(cantidad + 1)
   }
 
-
+  const stockDisponible = item.stock - cantidad;
 
 
   return (
@@ -28,6 +28,7 @@ const ItemDetail = ({ item }) => {
         <Card.Body>
           <Card.Title>{item.nombre}</Card.Title>
           <Card.Text>Categoría: {item.category}</Card.Text>
+          <Card.Text>Stock:{stockDisponible} </Card.Text>
           <ItemCount cantidad={cantidad} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={ () => { AgregarAlCarrito (item, cantidad)}}/>
         </Card.Body>
       </Card>

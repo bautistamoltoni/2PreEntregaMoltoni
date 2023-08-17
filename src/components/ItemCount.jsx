@@ -3,8 +3,6 @@ import React from "react";
 
 const ItemCount = ({cantidad, handleAgregar, handleRestar, handleSumar}) => {
 
-
-
     return(
         <div>
         <div>

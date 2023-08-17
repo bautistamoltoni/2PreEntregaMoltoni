@@ -40,7 +40,7 @@
                         </NavLink>
                     ))}
                     <NavLink className="nav-link" to={`/Nosotros`}>Nosotros</NavLink>
-                    <NavLink className="nav-link" to={`/Contacto`}>Contacto</NavLink>
+                    {/* <NavLink className="nav-link" to={`/Contacto`}>Contacto</NavLink> */}
                 </Nav>
                 <CartWidget/>
             </Container>

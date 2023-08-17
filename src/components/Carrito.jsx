@@ -31,7 +31,7 @@ const Carrito = ( ) => {
         <button onClick={handleVaciar}> Vaciar Carrito</button>
         </> : <h2> El Carro esta vacio</h2>
         }
-        <Link to="/checkout">Finalizar Compra</Link>
+        <Link to="/contacto">Finalizar Compra</Link>
     </div>
     
     )

@@ -14,13 +14,13 @@ import { db } from '../firebase/config';
 export const ItemListContainer = (props)  => {
     const [productos, setProductos] = useState([])
 
-    const category = useParams().category;
+    const {category} = useParams();
 
     useEffect(() => { 
 
         const productosRef = collection(db, "productos");
         
-        const q =  category ? query(productosRef, where("category ", "==", category)) : productosRef
+        const q =  category ? query(productosRef, where("category", "==", category)) : productosRef
         
         getDocs(q)
                 .then(
@@ -32,7 +32,7 @@ export const ItemListContainer = (props)  => {
                 )
             }
         )
-            
+        
     }, [category]) 
 
     return (

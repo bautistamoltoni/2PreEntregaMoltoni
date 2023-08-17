@@ -15,12 +15,6 @@ import  "./Css/App.Css";
 import {  CartProvider } from './context/CartContext.jsx';
 
 
-
-
-
-
-
-
 function App() {
 
 
@@ -33,7 +27,7 @@ function App() {
         <NavBar/>
         <Routes>
             <Route path="/" element={<ItemListContainer greeting="PRODUCTOS" />} />
-            <Route path="/category/:id" element={<ItemListContainer greeting="PRODUCTOS" />} />
+            <Route path="/category/:category" element={<ItemListContainer greeting="PRODUCTOS" />} />
             <Route path="/item/:id" element={<ItemDetailContainer/>} />
             <Route path="/nosotros" element={ <Nosotros/>} />
             <Route path="/contacto" element={ <Contacto/>} />
